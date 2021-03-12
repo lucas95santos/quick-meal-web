@@ -1,6 +1,13 @@
-function App() {
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+// routes
+import Routes from './routes';
+
+const App = () => {
   return (
-    <h1>Quick Meal</h1>
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 
