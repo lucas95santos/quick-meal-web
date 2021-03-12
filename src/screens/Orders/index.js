@@ -1,12 +1,14 @@
 import React from 'react';
+// containers
+import { MainContent } from '../../containers';
 // styles
 import './styles.css';
 
 const Orders = () => {
   return (
-    <div>
-      <h1>Meus Pedidos</h1>
-    </div>
+    <MainContent>
+      Meus pedidos
+    </MainContent>
   );
 }
 

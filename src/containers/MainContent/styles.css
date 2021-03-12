@@ -1,0 +1,40 @@
+.main-content {
+  min-height: 100vh;
+}
+
+header {
+  position: relative;
+  height: 60vh;
+  margin-bottom: calc(var(--default-space)*4);
+}
+
+.header__background {
+  height: 300px;
+  background-color: #7159c1;
+}
+
+.header__container {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--default-space)*3);
+  height: 200px;
+}
+
+.header__info {
+  flex: 2;
+}
+
+.header__cart {
+  flex: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 24px;
+}
+
+main {
+  border: 1px solid;
+}

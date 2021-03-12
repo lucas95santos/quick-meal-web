@@ -1,12 +1,14 @@
 import React from 'react';
+// containers
+import { MainContent } from '../../containers';
 // styles
 import './styles.css';
 
 const Profile = () => {
   return (
-    <div>
-      <h1>Minha Conta</h1>
-    </div>
+    <MainContent>
+      Minha conta
+    </MainContent>
   );
 }
 
