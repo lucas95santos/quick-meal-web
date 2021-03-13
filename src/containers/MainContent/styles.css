@@ -10,7 +10,18 @@ header {
 
 .header__background {
   height: 300px;
-  background-color: #7159c1;
+  background-color: var(--primary-color);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(0, 0, 0, 0.8),
+    rgba(77, 33, 4, 0.8),
+    rgba(255, 102, 0, 0.4),
+    rgba(255, 102, 0, 0.2)
+  ), url("../../assets/images/header_background.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header__container {

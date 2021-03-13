@@ -3,6 +3,8 @@
 :root {
   --default-space: 8px;
   --card-background: #ffffff;
+  --primary-color: #ff6600;
+  --secondary-color: #222222;
 }
 
 .container {
@@ -40,7 +42,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #7159c1;
+  background-color: var(--secondary-color);
   box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
   display: flex;
   justify-content: center;
@@ -66,5 +68,5 @@
 
 .card-collapse--invisible svg {
   font-size: 18px;
-  color: #7159c1;
+  color: var(--secondary-color);
 }
