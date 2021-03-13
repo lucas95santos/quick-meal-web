@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+// components
+import { Navbar } from '../../components';
 // icons
 import { RiShoppingCartLine } from 'react-icons/ri';
 // styles
@@ -11,6 +13,7 @@ const MainContent = ({ children }) => {
     <div className="main-content">
       <header>
         <div className="header__background" />
+        <Navbar />
         <div className="header__container">
           <div className="card header__info">
             Header Content

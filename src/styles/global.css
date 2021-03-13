@@ -61,12 +61,10 @@
 }
 
 .card-collapse--invisible {
-  background-color: var(--card-background);
   top: 0;
   right: 0;
 }
 
 .card-collapse--invisible svg {
   font-size: 18px;
-  color: var(--secondary-color);
 }
