@@ -30,9 +30,6 @@ header {
 
 .header__cart {
   flex: 1;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 24px;
 }
 
 main {
