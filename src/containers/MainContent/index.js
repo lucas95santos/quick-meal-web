@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // components
-import { Navbar } from '../../components';
+import { Navbar, Card } from '../../components';
 // icons
 import { RiShoppingCartLine } from 'react-icons/ri';
 // styles
@@ -15,17 +15,20 @@ const MainContent = ({ children }) => {
         <div className="header__background" />
         <Navbar />
         <div className="header__container">
-          <div className="card header__info">
-            Header Content
-          </div>
-          <div className={`${!cartCollapsed ? 'card header__cart' : 'card--invisible'}`}>
-            <div
-              className={`card-collapse ${cartCollapsed && 'card-collapse--invisible'}`}
-              onClick={() => setCartCollapsed(!cartCollapsed)}
-            >
-              <RiShoppingCartLine />
-            </div>
-          </div>
+          <Card className="header__info">
+            Info
+          </Card>
+          <Card
+            icon={RiShoppingCartLine}
+            className="header__cart"
+            collapsed={cartCollapsed}
+            onCollapsedClick={setCartCollapsed}
+          >
+              <div className="empty-cart">
+                <RiShoppingCartLine />
+                <p>Não há itens no carrinho</p>
+              </div>
+          </Card>
         </div>
       </header>
       <main className={!cartCollapsed ? 'container-sm' : 'container'}>

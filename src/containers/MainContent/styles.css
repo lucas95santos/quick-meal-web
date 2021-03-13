@@ -41,8 +41,22 @@ header {
 
 .header__cart {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-cart {
+  color: var(--disable-color);
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+.empty-cart svg {
+  font-size: 32px;
+  margin-bottom: var(--default-space);
 }
 
 main {
-  border: 1px solid;
+  /* border: 1px solid; */
 }
