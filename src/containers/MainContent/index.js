@@ -6,7 +6,7 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 // styles
 import './styles.css';
 
-const MainContent = ({ children }) => {
+const MainContent = ({ children, headerContent: HeaderContent }) => {
   const [cartCollapsed, setCartCollapsed] = useState(false);
 
   return (
@@ -15,8 +15,8 @@ const MainContent = ({ children }) => {
         <div className="header__background" />
         <Navbar />
         <div className="header__container">
-          <Card className="header__info">
-            Info
+          <Card className="header__content">
+            <HeaderContent />
           </Card>
           <Card
             icon={RiShoppingCartLine}
@@ -24,10 +24,10 @@ const MainContent = ({ children }) => {
             collapsed={cartCollapsed}
             onCollapsedClick={setCartCollapsed}
           >
-              <div className="empty-cart">
-                <RiShoppingCartLine />
-                <p>Não há itens no carrinho</p>
-              </div>
+            <div className="empty-cart">
+              <RiShoppingCartLine />
+              <p>Não há itens no carrinho</p>
+            </div>
           </Card>
         </div>
       </header>

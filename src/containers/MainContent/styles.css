@@ -9,7 +9,7 @@ header {
 }
 
 .header__background {
-  height: 300px;
+  height: 80%;
   background-color: var(--primary-color);
   background: linear-gradient(
     135deg,
@@ -35,7 +35,7 @@ header {
   height: 200px;
 }
 
-.header__info {
+.header__content {
   flex: 2;
 }
 
