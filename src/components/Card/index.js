@@ -10,11 +10,14 @@ const Card = (props) => {
     icon: Icon,
     onCollapsedClick,
     className,
+    hovered,
     children
   } = props;
 
   return (
-    <div className={!collapsed ? `card ${className}` : 'card--invisible'}>
+    <div
+      className={!collapsed ? `card ${className} ${hovered && 'card-shadow'}` : 'card--invisible'}
+    >
       {!collapsed && children}
       {onCollapsedClick && (
         <div

@@ -57,7 +57,7 @@ const Catalog = () => {
             <h2>{category.name}</h2>
             <div className="catalog__products">
               {category.products.map(product => (
-                <Card className="catalog__product">
+                <Card className="catalog__product" hovered>
                   <h3>{product.name}</h3>
                   <span>{CatalogApi.formatPrice(product.price)}</span>
                 </Card>
