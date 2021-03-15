@@ -1,0 +1,42 @@
+.catalog {
+  position: relative;
+  margin-top: calc(var(--default-space)*5);
+}
+
+.catalog__categories {
+  margin: calc(var(--default-space)*8) 0;
+}
+
+.catalog__categories h2 {
+  margin-bottom: calc(var(--default-space)*4);
+}
+
+.catalog__products {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  gap: calc(var(--default-space)*3)
+}
+
+.catalog__product {
+  flex-basis: calc(50% - (var(--default-space)*1.5));
+  height: 150px;
+}
+
+.show-catalog {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  padding: var(--default-space);
+  border-radius: calc(var(--default-space)/2);
+  box-shadow: 0 1px 2px 1px rgba(0,0,0,0.1);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: transform linear 0.2s;
+}
+
+.show-catalog:hover {
+  transform: scale(1.05);
+}

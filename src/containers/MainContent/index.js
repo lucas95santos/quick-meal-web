@@ -16,7 +16,7 @@ const MainContent = ({ children, headerContent: HeaderContent }) => {
         <Navbar />
         <div className="header__container">
           <Card className="header__content">
-            <HeaderContent />
+            {HeaderContent && <HeaderContent />}
           </Card>
           <Card
             icon={RiShoppingCartLine}

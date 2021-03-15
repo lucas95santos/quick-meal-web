@@ -4,6 +4,7 @@
   justify-content: space-around;
   align-items: center;
   gap: calc(var(--default-space)*5);
+  /* border: 1px solid; */
 }
 
 .categories__item {
@@ -39,4 +40,12 @@
   margin-top: calc(var(--default-space)*2);
   font-weight: 500;
   letter-spacing: 0.5px;
+}
+
+.item-active {
+  border: 2px solid var(--primary-color);
+}
+
+.text-active {
+  color: var(--primary-color);
 }
