@@ -3,9 +3,11 @@ import CatalogApi from '../../api/CatalogApi';
 // mocks
 import { categories, products } from '../../mocks';
 // components
-import { Categories, Card } from '../../components';
+import { Categories, Card, Input } from '../../components';
 // containers
 import { MainContent } from '../../containers';
+// icons
+import { MdSearch } from 'react-icons/md'
 // styles
 import './styles.css';
 
@@ -41,6 +43,7 @@ const Catalog = () => {
       }
     >
       <div className="catalog">
+        {displayedCatalog.length > 1 && <Input icon={MdSearch} />}
         {displayedCatalog.length === 1 && (
           <button
             className="show-catalog"
