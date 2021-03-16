@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 // styles
 import './styles.css';
+// images
+import logo from '../../assets/images/logo_full.png';
 
 const Navbar = () => {
   const [userIsLogged, setUserIsLogged] = useState(false);
@@ -16,8 +18,8 @@ const Navbar = () => {
       <div className="nav__container">
         <div className="nav__logo">
           <img
-            src="https://fontmeme.com/permalink/210313/e413a3891aff219a5ef900ac46fb1818.png"
-            alt="fonte-de-guerra-nas-estrelas" border="0"
+            src={logo}
+            alt="logo" border="0"
           />
         </div>
         <ul className="nav__menu">
