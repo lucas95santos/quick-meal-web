@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import './styles.css';
 
 const Input = (props) => {
-  const { className, icon: Icon, ...rest } = props;
+  const { className, icon: Icon, value, onTextChange, ...rest } = props;
   const [focused, setFocused] = useState(false);
 
   return (
@@ -13,6 +13,8 @@ const Input = (props) => {
       </div>
       <input
         {...rest}
+        value={value}
+        onChange={onTextChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
       />
