@@ -89,7 +89,7 @@ const Catalog = () => {
             value={inputSearchValue}
             onTextChange={(event) => onSearch(event)}
           />
-          {displayedCatalog.length === 1 && (
+          {displayedCatalog.length < catalog.length && (
             <button
               className="show-catalog"
               onClick={onShowCatalog}
