@@ -1,23 +1,86 @@
 .drawer {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0,0,0,0.4);
-  display: none;
-  pointer-events: none;
 }
 
-.drawer--visible {
+.drawer--on {
   display: flex;
   flex-direction: column;
   pointer-events: all;
 }
 
+.drawer--off {
+  display: none;
+  pointer-events: none;
+}
+
 .drawer__content {
+  position: relative;
   align-self: flex-end;
   width: 25vw;
   height: 100%;
   background-color: var(--card-background);
+}
+
+.content--in {
+  animation-timing-function: ease-in-out;
+	animation-duration: .5s;
+  animation-name: slidein;
+}
+
+.content--out {
+  animation-timing-function: ease-in-out;
+	animation-duration: .5s;
+  animation-name: slideout;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+}
+
+.drawer__content__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 0 2px 1px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow linear 0.2s;
+}
+
+.drawer__content__close-button:hover {
+  box-shadow: 0 0 4px 2px rgba(0,0,0,0.1);
+}
+
+.drawer__content__close-button svg {
+  font-size: 18px;
+  color: var(--secondary-color);
 }

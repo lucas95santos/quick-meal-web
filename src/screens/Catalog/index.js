@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import CatalogApi from '../../api/CatalogApi';
+// context
+import { Context } from '../../contexts/global';
 // mocks
 import { categories, products } from '../../mocks';
 // components
@@ -12,6 +14,8 @@ import { MdSearch } from 'react-icons/md'
 import './styles.css';
 
 const Catalog = () => {
+  const context = useContext(Context);
+
   const [catalog, setCatalog] = useState([]);
   const [displayedCatalog, setDisplayedCatalog] = useState([]);
   const [selectedCatalog, setSelectedCatalog] = useState([]);
@@ -103,7 +107,12 @@ const Catalog = () => {
             <h2>{category.name}</h2>
             <div className="catalog__products">
               {category.products.map(product => (
-                <Card className="catalog__product" hovered key={product.id}>
+                <Card
+                  className="catalog__product"
+                  hovered
+                  key={product.id}
+                  onClick={() => context.onShowDrawer(() => <p>{product.name}</p>)}
+                >
                   <h3>{product.name}</h3>
                   <span>{CatalogApi.formatPrice(product.price)}</span>
                 </Card>
