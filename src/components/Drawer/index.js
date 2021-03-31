@@ -10,10 +10,6 @@ const Drawer = memo(() => {
   const context = useContext(Context);
   const [animation, setAnimation] = useState('content--in');
 
-  useEffect(() => {
-    document.body.style.overflowY = context.showDrawer ? 'hidden' : 'auto';
-  }, [context.showDrawer]);
-
   const closeDrawer = useCallback(() => {
     setAnimation('content--out');
 
@@ -23,9 +19,48 @@ const Drawer = memo(() => {
     }, 500);
   }, [context]);
 
+  const drawerContentHadClick = useCallback((element, click) => {
+    const elementDimensions = element.getBoundingClientRect();
+
+    const horizontal = {
+      init: elementDimensions.left,
+      end: elementDimensions.left + elementDimensions.width
+    }
+
+    const vertical = {
+      init: elementDimensions.top,
+      end: elementDimensions.top + elementDimensions.height
+    }
+
+    const hadClickHorizontal = click.x >= horizontal.init && click.x <= horizontal.end;
+    const hadClickVertical = click.y >= vertical.init && click.y <= vertical.end;
+
+    return hadClickHorizontal && hadClickVertical;
+  }, []);
+
+  const handleClickOut = useCallback((event) => {
+    const drawerContentEl = document.getElementById('drawer__content');
+
+    if (drawerContentEl) {
+      if (!drawerContentHadClick(drawerContentEl, event)) {
+        closeDrawer();
+      }
+    }
+  }, [closeDrawer, drawerContentHadClick]);
+
+  useEffect(() => {
+    document.body.style.overflowY = context.showDrawer ? 'hidden' : 'auto';
+
+    if (context.showDrawer) document.addEventListener('click', handleClickOut, false);
+
+    return () => {
+      document.removeEventListener('click', handleClickOut, false);
+    }
+  }, [context.showDrawer, handleClickOut]);
+
   return (
     <div className={`drawer ${context.showDrawer ? 'drawer--on' : 'drawer--off'}`}>
-      <div className={`drawer__content ${animation}`}>
+      <div className={`drawer__content ${animation}`} id="drawer__content">
         <div
           className="drawer__content__close-button"
           onClick={closeDrawer}
