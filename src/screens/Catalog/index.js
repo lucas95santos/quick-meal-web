@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useCallback, memo } from 'react';
 import CatalogApi from '../../api/CatalogApi';
 // context
 import { Context } from '../../contexts/global';
@@ -13,7 +13,7 @@ import { MdSearch } from 'react-icons/md'
 // styles
 import './styles.css';
 
-const Catalog = () => {
+const Catalog = memo(() => {
   const context = useContext(Context);
 
   const [catalog, setCatalog] = useState([]);
@@ -27,21 +27,21 @@ const Catalog = () => {
     setDisplayedCatalog(CatalogApi.mountCatalog(categories, products));
   }, []);
 
-  const onCategorySelect = (categoryId) => {
+  const onCategorySelect = useCallback((categoryId) => {
     const selected = catalog.filter(category => category.id === categoryId);
     setSelectedCatalog(selected);
     setDisplayedCatalog(selected);
     setSelectedCategory(categoryId);
     setInputSearchValue('');
-  }
+  }, [catalog]);
 
-  const onShowCatalog = () => {
+  const onShowCatalog = useCallback(() => {
     setDisplayedCatalog(catalog);
     setSelectedCategory('');
     setInputSearchValue('');
-  }
+  }, [catalog]);
 
-  const searchTerm = (term) => {
+  const searchTerm = useCallback((term) => {
     let results = [];
     const searchArray = selectedCategory !== '' ? selectedCatalog : catalog;
 
@@ -68,12 +68,12 @@ const Catalog = () => {
         setDisplayedCatalog(results);
       }
     }, 1000);
-  }
+  }, [catalog, selectedCatalog, selectedCategory]);
 
-  const onSearch = (event) => {
+  const onSearch = useCallback((event) => {
     setInputSearchValue(event.target.value);
     searchTerm(event.target.value);
-  }
+  }, [searchTerm]);
 
   return (
     <MainContent
@@ -123,6 +123,6 @@ const Catalog = () => {
       </div>
     </MainContent>
   );
-}
+});
 
 export default Catalog;

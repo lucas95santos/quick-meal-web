@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 // components
 import { Navbar, Card } from '../../components';
 // icons
@@ -6,7 +6,7 @@ import { RiShoppingCartLine } from 'react-icons/ri';
 // styles
 import './styles.css';
 
-const MainContent = ({ children, headerContent: HeaderContent }) => {
+const MainContent = memo(({ children, headerContent: HeaderContent }) => {
   const [cartCollapsed, setCartCollapsed] = useState(false);
 
   return (
@@ -36,6 +36,6 @@ const MainContent = ({ children, headerContent: HeaderContent }) => {
       </main>
     </div>
   );
-}
+});
 
 export default MainContent;

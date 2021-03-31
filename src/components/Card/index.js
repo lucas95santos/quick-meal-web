@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { memo } from 'react';
 // icons
 import { FiMinimize2 } from 'react-icons/fi';
 // styles
 import './styles.css';
 
-const Card = (props) => {
+const Card = memo((props) => {
   const {
     collapsed,
     icon: Icon,
@@ -31,6 +31,6 @@ const Card = (props) => {
       )}
     </div>
   );
-}
+});
 
 export default Card;

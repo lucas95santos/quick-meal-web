@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 // styles
 import './styles.css';
 
-const Input = (props) => {
+const Input = memo((props) => {
   const { className, icon: Icon, value, onTextChange, ...rest } = props;
   const [focused, setFocused] = useState(false);
 
@@ -20,6 +20,6 @@ const Input = (props) => {
       />
     </div>
   );
-}
+});
 
 export default Input;

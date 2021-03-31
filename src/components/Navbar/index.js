@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { useHistory } from 'react-router-dom';
 // styles
 import './styles.css';
 // images
 import logo from '../../assets/images/logo_full.png';
 
-const Navbar = () => {
+const Navbar = memo(() => {
   const [userIsLogged, setUserIsLogged] = useState(false);
   const history = useHistory();
 
-  const goTo = (route) => {
+  const goTo = useCallback((route) => {
     history.push(`/${route}`);
-  }
+  }, [history]);
 
   return (
     <nav>
@@ -32,6 +32,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-}
+});
 
 export default Navbar;
